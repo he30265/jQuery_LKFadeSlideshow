@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery_渐隐式轮播效果插件封装</title>
+</head>
+
+<body>
+
+<div class="slide_container slide_demo">
+    <div class="slide_wrapper">
+        <div class="slide_item" style="background-color: #4390ee;">item1</div>
+        <div class="slide_item" style="background-color: #ff8604;">item2</div>
+        <div class="slide_item" style="background-color: #49a430;">item3</div>
+    </div>
+    <div class="pagination"></div>
+    <div class="arrow">
+        <i class="arrow_left">left</i>
+        <i class="arrow_right">right</i>
+    </div>
+</div>
+
+<style>
+.slide_container { position: relative; width: 600px; margin: 20px auto; }
+.slide_item { font-size: 24px; line-height: 250px; position: absolute; top: 0; left: 0; overflow: hidden; width: 100%; text-align: center; }
+.pagination { position: absolute; z-index: 1; bottom: 20px; width: 100%; text-align: center; }
+.pagination span { display: inline-block; width: 20px; height: 20px; margin: 0 10px; cursor: pointer; border-radius: 50%; background-color: #fff; }
+.pagination .active { background-color: #adadad; }
+.arrow i { position: absolute; z-index: 1; top: 50%; display: inline-block; cursor: pointer; }
+.arrow .arrow_left { left: 20px; }
+.arrow .arrow_right { right: 20px; }
+</style>
+<script src="jquery-1.8.3.min.js"></script>
+<script src="LKFadeSlideshow.js"></script>
+<script>
+$(function() {
+    $(".slide_demo").LKFadeSlideshow({
+        autoPlay:3000,
+        speed: 500,
+        initialItem: 3,
+        pagination: ".pagination",
+        paginationNum: false,
+        paginationClickable: true,
+        arrow_left: ".arrow_left",
+        arrow_right: ".arrow_right"
+    });
+});
+</script>
+
+</body>
+
+</html>
